@@ -1,0 +1,45 @@
+{
+  "name": "similar-web",
+  "version": "0.1.0",
+  "proxy": "http://localhost:8080",
+  "private": true,
+  "author": {
+    "name": "Eliran Suisa",
+    "email": "elikos1@gmail.com"
+  },
+  "scripts": {
+    "start:server": "node server/index.js",
+    "start": "react-scripts start"
+  },
+  "dependencies": {
+    "antd": "^4.6.5",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "react-youtube": "^7.12.0",
+    "styled-components": "^5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  }
+}

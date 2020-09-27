@@ -1,4 +1,4 @@
-# SimilarWeb challange
+# SimilarWeb challenge
 #### Youtube playlist player
   ##### scripts:
   * **install** yarn

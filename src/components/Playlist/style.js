@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { Button, Input } from "antd";
 
-export const PlayButton = styled(Button)`
-  position: absolute;
-  right: 5px;
-  cursor: pointer;
-`;
+export const PlayAndRemoveWrapper = styled('span')`
+position: absolute;
+right: 5px;
+`
+
+export const SongActionButton = styled(Button)`
+  margin: 0 5px;
+`
 
 export const AddVideoWrapper = styled("div")`
   margin-bottom: 10px;

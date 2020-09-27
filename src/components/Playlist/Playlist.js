@@ -1,7 +1,7 @@
 import React from "react";
-import { List, message } from "antd";
+import { List, message, Popconfirm } from "antd";
 import AddVideo from "./AddVideo/AddVideo";
-import { PlayButton, PlaylistWrapper } from "./style";
+import { PlaylistWrapper, PlayAndRemoveWrapper, SongActionButton } from "./style";
 
 export default ({ playlist, updatePlaylist, setCurrentSongId }) => {
   function renderSongItem(songId, idx) {
@@ -9,16 +9,23 @@ export default ({ playlist, updatePlaylist, setCurrentSongId }) => {
       <List.Item>
         <div>
           {idx + 1}) <span>{songId}</span>
-          <PlayButton onClick={() => setCurrentSongId(songId)} size="small">
-            play
-          </PlayButton>
+          <PlayAndRemoveWrapper>
+            <SongActionButton type="primary" onClick={() => setCurrentSongId(songId)} size="small">
+              play
+          </SongActionButton>
+            <Popconfirm okText="yes" title="would you like to remove the song?" onConfirm={() => updatePlaylist('delete', songId)}>
+              <SongActionButton type="danger" size="small">
+                remove
+          </SongActionButton>
+            </Popconfirm>
+          </PlayAndRemoveWrapper>
         </div>
       </List.Item>
     );
   }
 
   async function addNewSong(songUrl = "") {
-    const songId = songUrl.split("?v=")[1];
+    const songId = songUrl.split("=")[1].split('&')[0];
     if (!songId) {
       return message.error("Invalid song url");
     }
@@ -31,7 +38,10 @@ export default ({ playlist, updatePlaylist, setCurrentSongId }) => {
   return (
     <PlaylistWrapper>
       <AddVideo addNewSong={addNewSong} />
-      <List bordered dataSource={playlist} renderItem={renderSongItem} />
+      <List
+        bordered dataSource={playlist}
+        renderItem={renderSongItem}
+        locale={{ emptyText: "Add Songs to Playlist" }} />
     </PlaylistWrapper>
   );
 };

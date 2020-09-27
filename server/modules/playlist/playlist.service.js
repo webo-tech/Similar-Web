@@ -1,4 +1,4 @@
-let playlistDB = ['mp_skxnQgXU', '_UeWGi6acyY'];
+let playlistDB = [];
 
 function getPlaylist() {
   return playlistDB;

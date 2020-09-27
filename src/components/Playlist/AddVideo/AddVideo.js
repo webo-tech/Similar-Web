@@ -17,7 +17,7 @@ export default (props) => {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="YOUTUBE URL"
       />
-      <Button type="primary" onClick={onAddSong}>
+      <Button disabled={!url.includes("https://www.youtube.com/watch?v=")} onClick={onAddSong}>
         Add Song
       </Button>
     </AddVideoWrapper>

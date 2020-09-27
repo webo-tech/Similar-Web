@@ -20,9 +20,10 @@ export default () => {
     if (action === "delete") {
       const songIndex = playlist.indexOf(songId);
       await axios.delete(`${PLAYLIST_BASE_URL}/${songId}`);
-      if (playlist.length > 1 && songIndex < playlist.length) {
+      if (currentSongId === songId && playlist.length > 1 && songIndex < playlist.length) {
         setCurrentSongId(playlist[songIndex + 1]);
       }
+
     } else if (action === "add") {
       await axios.post(PLAYLIST_BASE_URL, { songId });
     }
